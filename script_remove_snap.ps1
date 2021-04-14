@@ -26,7 +26,7 @@ Connect-VIserver $viserver -User $viuser -Password $vipass
 Start-Transcript -Path $loc’remove_snap_log.txt’ -Append
 
 # VMs validation with Snapshot
-Write-Output "***** The following are the VMs that have Snapshots: ****" "`n" | Out-File $loc$doc -Append
+Write-Output "***** The following are the VMs that have Snapshots: ****" "`n" | Out-File $loc$doc
 $snap_validate = Get-VM | Get-Snapshot | Select-Object vm,vmid,name,created,SizeMB
 if ($null -eq $snap_validate) {
      Write-Output ("No exists VMs with Snapshot")  | Out-File $loc$doc -Append
